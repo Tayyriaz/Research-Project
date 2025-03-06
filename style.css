@@ -1,0 +1,137 @@
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  input,
+  button {
+    margin: 10px;
+  }
+  
+  img {
+    max-width: 300px;
+    margin: 10px;
+  }
+  
+  .cache-info {
+    background-color: #30363d;
+    border-radius: 8px;
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+  
+  .cache-info.cached {
+    border-left: 4px solid #00e6ac;
+  }
+  
+  .cache-info.not-cached {
+    border-left: 4px solid #f97583;
+  }
+  
+  .cache-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .clear-cache-btn {
+    background-color: #f97583;
+    color: #0d1117;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .clear-cache-btn:hover {
+    background-color: #e5534b;
+  }
+  
+  /* Loading spinner and overlay */
+  .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(13, 17, 23, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+  
+  .loading-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .spinner {
+    width: 60px;
+    height: 60px;
+    border: 5px solid #30363d;
+    border-top: 5px solid #00e6ac;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  .loading-text {
+    margin-top: 20px;
+    color: #00e6ac;
+    font-size: 1.2rem;
+    text-align: center;
+  }
+  
+  .processing-steps {
+    margin-top: 15px;
+    text-align: left;
+    color: #c9d1d9;
+    font-size: 0.9rem;
+    max-width: 300px;
+  }
+  
+  .processing-step {
+    margin: 8px 0;
+    opacity: 0.5;
+    transition: opacity 0.3s;
+  }
+  
+  .processing-step.active {
+    opacity: 1;
+    color: #00e6ac;
+  }
+  
+  .processing-step.completed {
+    opacity: 1;
+    color: #c9d1d9;
+  }
+  
+  .processing-step.completed::before {
+    content: "✓ ";
+    color: #00e6ac;
+  }
+  
+  .processing-step.active::before {
+    content: "⟳ ";
+    display: inline-block;
+    animation: spin 1.5s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  
